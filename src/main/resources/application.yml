@@ -1,0 +1,18 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  r2dbc:
+    url: r2dbc:${db.url}
+    username: ${db.username}
+    password: ${db.password}
+    pool:
+      initial-size: 2
+      max-size: 25
+      max-life-time: 5
+  application:
+    name: ci-test
+
+db:
+  username: ${POSTGRES_USER:ci}
+  password: ${POSTGRES_PASSWORD:ci}
+  url: postgresql://${POSTGRES_HOST:192.168.251.251}:${POSTGRES_PORT:5432}/${POSTGRES_DB:ci}
